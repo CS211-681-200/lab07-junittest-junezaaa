@@ -1,20 +1,19 @@
 package ku.cs.models;
 
+import ku.cs.services.StudentHardCodeDatasource;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import ku.cs.services.StudentListHardCodeDatasource;
 import static org.junit.jupiter.api.Assertions.*;
 
 class StudentListTest {
-     StudentList list = new StudentList();
+      StudentList list;
 
     @BeforeEach
     void init(){
-        list.addNewStudent("6710400001", "First");
-        list.addNewStudent("6710400002", "Second");
-        list.addNewStudent("6710400003", "Third");
-        list.addNewStudent("6710400004", "Fourth");
+        StudentHardCodeDatasource datasource = new StudentHardCodeDatasource();
+        list = datasource.readData();
     }
 
     // list test
